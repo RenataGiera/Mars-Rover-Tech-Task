@@ -2,7 +2,7 @@ import { directionN } from "./rover-directions";
 import { Position } from './rover-initial-position';
 import { position } from './rover-initial-position';
 describe("Mars rover moves to North", () => {
-  test("Moving first step towards north (M) - (0, 1, N)", () => {
+  test("Moving first step towards north (M) - (0, 1) N", () => {
     const NewPosition: Position = {
       x: 0,
       y: 1,
@@ -10,20 +10,13 @@ describe("Mars rover moves to North", () => {
     };
     expect(directionN('M', position)).toEqual(NewPosition);
   });
-  test("Moving second step towards north (M) - (0, 2, N)", () => {
-    const position1: Position = {
-      x: 0,
-      y: 1,
-      d: 'N',
-    };
+  test("Turning right (R) - (1, 0) E", () => {
     const position1New: Position = {
-      x: 0,
-      y: 2,
-      d: 'N',
+      x: 1,
+      y: 0,
+      d: 'E',
     };
-
-    expect(directionN('M', position1)).toEqual(position1New);
+    expect(directionN('R', position)).toEqual(position1New);
   });
- 
-})
+});
 
