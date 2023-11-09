@@ -25,19 +25,14 @@ describe("Mars rover moves to North", () => {
 });
 
 describe("Mars rover moves to South", () => {
-  test("Moving first step towards South (M): (0, -1) S", () => {
-    const NewPosition: Position = {
-      x: 0,
-      y: -1,
-      d: 'S',
-    };
-    expect(directionS('M', position)).toEqual(NewPosition);
+  test("Moving first step towards South (M): (0, -1) S - error - out of the plateau", () => {
+    expect(() => directionS('M', position)).toThrow("Rover is out of the plateau boundaries.")
   });
   test("Turning right (R) when heading South: (0, 0) E", () => {
     const position2New: Position = {
       x: 0,
       y: 0,
-      d: 'E',
+      d: 'W',
     };
     expect(directionS('R', position)).toEqual(position2New);
   });
@@ -63,13 +58,8 @@ describe("Mars rover moves to East", () => {
   });
 });
 describe("Mars rover moves to West", () => {
-  test("Moving first step towards West (M): (-1,0) W", () => {
-    const NewPosition5: Position = {
-      x: -1,
-      y: 0,
-      d: 'W',
-    };
-    expect(directionW('M', position)).toEqual(NewPosition5);
+  test("Moving first step towards West (M): (0, -1) W - error - out of the plateau", () => {
+    expect(() => directionS('M', position)).toThrow("Rover is out of the plateau boundaries.")
   });
   test("Turning right (R) when heading West (0, 0) E", () => {
     const position6New: Position = {

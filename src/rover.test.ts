@@ -1,6 +1,5 @@
 import { roverMove } from "./rover";
 import { Position } from './rover-initial-position';
-import { position } from './rover-initial-position';
 
 describe("test Mars Rover moves", () => {
   test("Test moving forward 3 steps North direction (MMM) (0,3) N", () => {
@@ -19,6 +18,10 @@ describe("test Mars Rover moves", () => {
     };
     expect(roverMove('RM')).toEqual(NewPositionAllMoves1);
   });
-
+  test("Test moving (LM) (0,-1) W - error - out of the plateau", () => {
+    expect(() => roverMove('LM')).toThrow("Rover is out of the plateau boundaries.")
+  });
 })
+
+
 

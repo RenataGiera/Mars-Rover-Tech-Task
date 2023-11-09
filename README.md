@@ -8,3 +8,7 @@ This repository can be used as a template for creating a TypeScript project usin
 ## Instructions
 
 - Run `npm install` followed by `npm test` to run the tests
+
+# to Add
+
+add a function that checks the position so that the rovers do not collide
