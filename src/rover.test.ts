@@ -13,7 +13,7 @@ describe("test Mars Rover moves", () => {
   });
   test("Test moving (RM) (2,0) E", () => {
     const NewPositionAllMoves1: Position = {
-      x: 2,
+      x: 1,
       y: 0,
       d: 'E',
     };

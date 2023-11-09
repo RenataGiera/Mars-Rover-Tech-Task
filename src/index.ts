@@ -1,4 +1,4 @@
 import { roverMove } from './rover';
 
 
-console.log(roverMove('LRLR'));
+console.log(roverMove('RMM'));

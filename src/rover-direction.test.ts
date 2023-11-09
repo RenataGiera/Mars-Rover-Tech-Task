@@ -14,9 +14,9 @@ describe("Mars rover moves to North", () => {
     };
     expect(directionN('M', position)).toEqual(NewPosition);
   });
-  test("Turning right when heading North (R): (1, 0) E", () => {
+  test("Turning right when heading North (R): (0, 0) E", () => {
     const position1New: Position = {
-      x: 1,
+      x: 0,
       y: 0,
       d: 'E',
     };
@@ -33,9 +33,9 @@ describe("Mars rover moves to South", () => {
     };
     expect(directionS('M', position)).toEqual(NewPosition);
   });
-  test("Turning right (R) when heading South: (1, 0) E", () => {
+  test("Turning right (R) when heading South: (0, 0) E", () => {
     const position2New: Position = {
-      x: 1,
+      x: 0,
       y: 0,
       d: 'E',
     };
@@ -53,10 +53,10 @@ describe("Mars rover moves to East", () => {
     };
     expect(directionE('M', position)).toEqual(NewPosition3);
   });
-  test("Turning right (R) when heading East (0, -1) E", () => {
+  test("Turning right (R) when heading East (0, 0) E", () => {
     const position4New: Position = {
       x: 0,
-      y: -1,
+      y: 0,
       d: 'S',
     };
     expect(directionE('R', position)).toEqual(position4New);
@@ -71,10 +71,10 @@ describe("Mars rover moves to West", () => {
     };
     expect(directionW('M', position)).toEqual(NewPosition5);
   });
-  test("Turning right (R) when heading West (0, 1) N", () => {
+  test("Turning right (R) when heading West (0, 0) E", () => {
     const position6New: Position = {
       x: 0,
-      y: 1,
+      y: 0,
       d: 'N',
     };
     expect(directionW('R', position)).toEqual(position6New);
