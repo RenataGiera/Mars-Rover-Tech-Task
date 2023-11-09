@@ -40,3 +40,16 @@ export const directionE = (instruction: string, currentPosition: Position): Posi
   }
   return currentPosition;
 };
+// ←
+export const directionW = (instruction: string, currentPosition: Position): Position => {
+  if (instruction === 'M') {
+    return {x: currentPosition.x - 1, y: currentPosition.y, d: 'W' };
+  }
+  if (instruction === 'L') {
+    return {x: currentPosition.x , y: currentPosition.y - 1, d: 'S' };
+  }
+  if (instruction === 'R') {
+    return {x: currentPosition.x , y: currentPosition.y + 1, d: 'N' };
+  }
+  return currentPosition;
+};

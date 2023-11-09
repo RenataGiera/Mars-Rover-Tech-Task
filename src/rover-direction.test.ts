@@ -1,7 +1,8 @@
 import { directionN } from "./rover-directions";
 import { directionS } from "./rover-directions";
 import { directionE } from "./rover-directions";
-//import { directionW } from "./rover-directions";
+import { directionW } from "./rover-directions";
+
 import { Position } from './rover-initial-position';
 import { position } from './rover-initial-position';
 describe("Mars rover moves to North", () => {
@@ -52,7 +53,7 @@ describe("Mars rover moves to East", () => {
     };
     expect(directionE('M', position)).toEqual(NewPosition3);
   });
-  test("Turning right (R) when heading East (1, 0) E", () => {
+  test("Turning right (R) when heading East (0, -1) E", () => {
     const position4New: Position = {
       x: 0,
       y: -1,
@@ -60,6 +61,22 @@ describe("Mars rover moves to East", () => {
     };
     expect(directionE('R', position)).toEqual(position4New);
   });
-
-
+});
+describe("Mars rover moves to West", () => {
+  test("Moving first step towards West (M): (-1,0) W", () => {
+    const NewPosition5: Position = {
+      x: -1,
+      y: 0,
+      d: 'W',
+    };
+    expect(directionW('M', position)).toEqual(NewPosition5);
+  });
+  test("Turning right (R) when heading West (0, 1) N", () => {
+    const position6New: Position = {
+      x: 0,
+      y: 1,
+      d: 'N',
+    };
+    expect(directionW('R', position)).toEqual(position6New);
+  });
 });
