@@ -1,15 +1,11 @@
 import { Position } from './rover-initial-position';
+import { position } from './rover-initial-position';
 import {isWithinPlateau } from './plateau';
 
 // ↑ ----------------------------
-export const directionN = (instruction: string, currentPosition: Position): Position => {
+export const directionN = (instruction: string, currentPosition: Position): ReturnType<typeof isWithinPlateau>  => {
   if (instruction === 'M') {
-    const YafterMove = currentPosition.y + 1;
-    if (isWithinPlateau(currentPosition.x, YafterMove)) {
-      return { x: currentPosition.x, y: YafterMove, d: 'N'};
-    } else {
-      throw new Error('Rover is out of the plateau boundaries.');
-    }
+    return isWithinPlateau(currentPosition.x, currentPosition.y + 1, 'N')
   }
   if (instruction === 'L') {
     return { ...currentPosition, d: 'W' };
@@ -20,14 +16,9 @@ export const directionN = (instruction: string, currentPosition: Position): Posi
   return currentPosition;
 };
 //  ↓ ----------------------------
-export const directionS = (instruction: string, currentPosition: Position): Position => {
+export const directionS = (instruction: string, currentPosition: Position): ReturnType<typeof isWithinPlateau>  => {
   if (instruction === 'M') {
-    const YafterMove = currentPosition.y - 1;
-    if (isWithinPlateau(currentPosition.x, YafterMove)) {
-      return { x: currentPosition.x, y: YafterMove, d: 'S' };
-    } else {
-      throw new Error('Rover is out of the plateau boundaries.');
-    }
+    return isWithinPlateau(currentPosition.x, currentPosition.y - 1, 'S');
   }
   if (instruction === 'L') {
     return { ...currentPosition, d: 'E' };
@@ -39,14 +30,9 @@ export const directionS = (instruction: string, currentPosition: Position): Posi
 };
 
 // → ----------------------------
-export const directionE = (instruction: string, currentPosition: Position): Position => {
+export const directionE = (instruction: string, currentPosition: Position): ReturnType<typeof isWithinPlateau>  => {
   if (instruction === 'M') {
-    const XafterMove = currentPosition.x + 1;
-    if (isWithinPlateau(XafterMove, currentPosition.y)) {
-      return {x: XafterMove, y: currentPosition.y, d: 'E' };
-    } else {
-      throw new Error('Rover is out of the plateau boundaries.');
-    }
+    return isWithinPlateau(currentPosition.x + 1, currentPosition.y, 'E')
   }
   if (instruction === 'L') {
     return {...currentPosition, d: 'N' };
@@ -54,17 +40,15 @@ export const directionE = (instruction: string, currentPosition: Position): Posi
   if (instruction === 'R') {
     return {...currentPosition, d: 'S' };
   }
+  console.log(currentPosition.x, currentPosition.y);
   return currentPosition;
 };
+
 // ← ----------------------------
-export const directionW = (instruction: string, currentPosition: Position): Position => {
+export const directionW = (instruction: string, currentPosition: Position): ReturnType<typeof isWithinPlateau>  => {
   if (instruction === 'M') {
+    return isWithinPlateau(currentPosition.x -1, currentPosition.y, 'W')
     const XafterMove = currentPosition.x - 1;
-    if (isWithinPlateau(XafterMove, currentPosition.y)) {
-      return {x: XafterMove, y: currentPosition.y, d: 'W' };
-    } else {
-      throw new Error('Rover is out of the plateau boundaries.');
-    }
   }
   if (instruction === 'L') {
     return {...currentPosition, d: 'S' };

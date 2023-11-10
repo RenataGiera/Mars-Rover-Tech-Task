@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc  --project tsconfig.build.json",
-    "start": "nodemon src/index.ts",
+    "start": "nodemon src/rover-directions.ts",
     "test": "jest --watch"
   },
   "keywords": [],
